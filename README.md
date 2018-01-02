@@ -1,14 +1,14 @@
 # WEBSITE MAPPER
 
-## Introduction
+## About
 
-> You can see folders, style sheet files images and others...
+> Simple and lightweight website mapper made in python.
 
-## Libraries
+## Dependencies
 
 > BeautifulSoup, urlib2, ssl, requests
 
 
-## Installation
+## How to use
 
-> python mapper.py after insert url, example http://google.com
+> python Mapper.py www.example.com output.txt
