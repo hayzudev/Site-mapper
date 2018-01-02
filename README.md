@@ -6,9 +6,9 @@
 
 ## Dependencies
 
-> BeautifulSoup, urlib2, ssl, requests
+> BeautifulSoup, colorama, requests 
 
 
 ## How to use
 
-> python Mapper.py www.example.com output.txt
+> python Mapper.py -u www.example.com -o output.txt
