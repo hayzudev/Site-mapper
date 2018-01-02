@@ -1,14 +1,14 @@
-# WEBSITE MAPPER
+# Mapeador de websites
 
-## About
+## Sobre
 
-> Simple and lightweight website mapper made in python.
+> Um simples mapeador de sites.
 
-## Dependencies
+## Dependencias
 
-> BeautifulSoup, colorama, requests 
+> BeautifulSoup, colorama, requests
 
 
-## How to use
+## Como usar
 
-> python Mapper.py -u www.example.com -o output.txt
+> Usage: python Mapper.py [--taget] Optional: [--output]
