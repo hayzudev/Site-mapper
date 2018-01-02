@@ -53,4 +53,4 @@ for l in _LINKS:
 	file.write(l + '\n') 
 file.close()
 
-print '[!] ' + str(len(_LINKS)) + ' Founds Finished'
+print '[!] ' + str(len(_LINKS)) + ' results found'
