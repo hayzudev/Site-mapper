@@ -1,26 +1,39 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 
-from bs4 import BeautifulSoup as bs
 import os, sys
-import requests
+import argparse
 import urllib2
 import codecs
 import ssl
 
+import colorama
+import requests
+
+from bs4 import BeautifulSoup as bs
+from colorama import init
+from colorama import Fore, Back, Style
+
+init()
+
 print ''
-print u'▒█▀▄▀█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█▀▀▀ ▒█▀▀█ '
-print u'▒█▒█▒█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▀▀▀ ▒█▄▄▀ '
-print u'▒█░░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ▒█▄▄▄ ▒█░▒█ '
+print Fore.RED + u'▒█▀▄▀█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█▀▀▀ ▒█▀▀█ '
+print Fore.RED + u'▒█▒█▒█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▀▀▀ ▒█▄▄▀ '
+print Fore.RED + u'▒█░░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ▒█▄▄▄ ▒█░▒█ '
+print Fore.RED + 'Written by hayzudev'
 print ''
+
+parser = argparse.ArgumentParser(description='Lightweight website mapper.')
+parser.add_argument('-o','--output', help='Output file name', required=True)
+parser.add_argument('-u','--url', help='Website url target', required=True)
+args = vars(parser.parse_args())
 
 _LINKS = []
-_URL = sys.argv[1]
-_OUTPUT = sys.argv[2]
+_URL = args['url']
+_OUTPUT = args['output']
 
 if not _URL.startswith('http'):
-	_newURl = 'https://' + _URL
-	_URL = _newURl
+	_URL = 'https://' + _URL
 
 gcontext = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 request = urllib2.Request(_URL,headers={'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)'})
@@ -49,8 +62,10 @@ file.write(u'▒█▒█▒█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ 
 file.write(u'▒█░░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ▒█▄▄▄ ▒█░▒█ \n')
 file.write('')
 for l in _LINKS:
-	print '[+] -> ' + l
+	print Fore.GREEN + '[+] ' + Fore.WHITE + l
 	file.write(l + '\n') 
 file.close()
 
-print '[!] ' + str(len(_LINKS)) + ' results found'
+print
+print Fore.RED + '[!] ' + str(len(_LINKS)) + ' results found'
+print
