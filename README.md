@@ -6,9 +6,9 @@
 
 ## Dependencias
 
-> BeautifulSoup, colorama, requests
+> lxml.html, Colorama, requests
 
 
 ## Como usar
 
-> Usage: python Mapper.py [--taget] Optional: [--output]
+> Comando: python Mapper.py [--taget] Optional: [--output]
